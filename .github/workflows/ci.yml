@@ -39,4 +39,4 @@ jobs:
     - if: (matrix.runs-on == 'windows-latest') && (github.ref == 'refs/heads/main' || contains(github.ref, 'refs/tags/'))
       run: |
         ./build.ps1
-        dotnet nuget push .\nuget\*.nupkg -s https://nuget.pkg.github.com/DosSEdo/index.json --api-key ${{ secrets.NUGET }} --skip-duplicate --no-symbols true
+        dotnet nuget push .\nuget\*.nupkg --source "github" --skip-duplicate --no-symbols true
